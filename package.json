@@ -1,0 +1,26 @@
+{
+  "name": "three-ply-loader",
+  "version": "1.0.0",
+  "description": "NodeJS wrapper for Three.js' PLYLoader function",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/stephenLYao/three-ply-loader.git"
+  },
+  "keywords": [
+    "threejs",
+    "PLYLoader"
+  ],
+  "author": "stephenliu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/stephenLYao/three-ply-loader/issues"
+  },
+  "homepage": "https://github.com/stephenLYao/three-ply-loader#readme",
+  "devDependencies": {
+    "three": "^0.84.0"
+  }
+}
