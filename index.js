@@ -474,4 +474,6 @@ module.exports = function(THREE) {
 		}
 
 	};
+
+	return THREE.PLYLoader;
 };
