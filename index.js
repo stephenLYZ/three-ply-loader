@@ -38,7 +38,7 @@ module.exports = function(THREE) {
 
 			function isASCII( data ) {
 
-				var header = parseHeader( bin2str( data ) );
+				var header = parseHeader(bin2strHeader(data));
 				return header.format === 'ascii';
 
 			}
@@ -52,6 +52,22 @@ module.exports = function(THREE) {
 
 					str += String.fromCharCode( array_buffer[ i ] ); // implicitly assumes little-endian
 
+				}
+
+				return str;
+
+			}
+
+			function bin2strHeader(buf) { // decode only the file header
+
+				var array_buffer = new Uint8Array(buf);
+				var patternHeader = /ply([\s\S]*)end_header\s/;
+				var str = '';
+				var i = 0;
+
+				while (!patternHeader.exec(str)) {
+					str += String.fromCharCode(array_buffer[i]); // implicitly assumes little-endian
+					i++;
 				}
 
 				return str;
@@ -431,7 +447,7 @@ module.exports = function(THREE) {
 					colors : []
 				};
 
-				var header = parseHeader( bin2str( data ) );
+				var header = parseHeader(bin2strHeader(data));
 				var little_endian = ( header.format === 'binary_little_endian' );
 				var body = new DataView( data, header.headerLength );
 				var result, loc = 0;
